@@ -5,28 +5,20 @@ using Photon;
 
 public class mutiplayerCommunication : Photon.MonoBehaviour {
 
-	public WatsonIntegration currentScript;
 	public int tempNumber;
-
-	void Start(){
-		
-		currentScript = WatsonIntegration.instance;
-
-	}
-
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting)
 		{
 			// We own this player: send the others our data
-			stream.SendNext(currentScript.phraseNumber);
+			stream.SendNext(WatsonIntegration.instance.phraseNumber);
 		}
 		else
 		{
 			// Network player, receive data
-			this.currentScript.phraseNumber = (int)stream.ReceiveNext();
+			WatsonIntegration.instance.phraseNumber = (int)stream.ReceiveNext();
 		}
-		tempNumber = this.currentScript.phraseNumber;
+		tempNumber = WatsonIntegration.instance.phraseNumber;
 	}
 }
