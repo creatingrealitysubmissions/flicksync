@@ -69,3 +69,9 @@ EditorBuildSettings:
     path: Assets/Photon Unity Networking/Demos/PunBasics-Tutorial/Scenes/PunBasics-Room
       for 4.unity
     guid: e7a7f9734636d415ca84ef3aaf7680f6
+  - enabled: 1
+    path: Assets/Custom/Photon-Setup.unity
+    guid: 3fa86a5b9fea94b0fac5ec335e5d710a
+  - enabled: 1
+    path: Assets/Custom/David.unity
+    guid: e778e346b6d37492b8cccaa4e1d1b9c9
