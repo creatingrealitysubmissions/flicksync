@@ -8,32 +8,46 @@ public class testScript : MonoBehaviour {
 	private int minuteCount;
 	private int hourCount;
 	public string currentTime;
+
 	private string phraseToSay;
+
+	private int phraseToSayLength;
+	private int amountAllowedWrong;
 	private bool correct;
 	// Use this for initialization
 	void Start () {
-		phraseToSay = "It was the best butter";
+		phraseToSay = "it was the best butter";
+		string[] ssize = phraseToSay.Split(null);
+		phraseToSayLength = ssize.Length;
+		amountAllowedWrong = ssize.Length/2;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		correct = true;
+		int allowedError = amountAllowedWrong;
 		UpdateTimerUI();
 		string currentPhrase = GetComponent<UnityEngine.UI.Text> ().text;
 		if (currentPhrase.Contains ("final")) {
-//			string[] ssize = currentPhrase.Split(null);
-//			for (int i = 0; i < ssize.Length; i++) {
-//				if(phraseToSay.Contains(ssize[i])){
-//				}
-//				else{
-//					correct=false;
-//				}
-//					
-//			}
-			if(!currentPhrase.Contains("best butter")){
-				correct = false;
+			int index = currentPhrase.IndexOf("(");
+			if (index > 0)
+				currentPhrase = currentPhrase.Substring(0, index);
+			currentPhrase = currentPhrase.Trim ();
+			string[] ssize = currentPhrase.Split(null);
+
+			for (int i = 0; i < ssize.Length; i++) {
+				if (!phraseToSay.Contains (ssize [i])) {
+					correct = false;
+					allowedError--;
+				}
+				//Debug.Log (ssize [i]);
 			}
-			if (correct==true) {
+
+			if (phraseToSayLength > ssize.Length) {
+				allowedError = allowedError - (phraseToSayLength - ssize.Length);
+			}
+
+			if (correct==true || allowedError >= 0) {
 				Debug.Log ("Correct!");
 			}
 			else{
