@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18341675, g: 0.22901125, b: 0.3059978, a: 1}
+  m_IndirectSpecularColor: {r: 0.24806768, g: 0.28382495, b: 0.346113, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1237,6 +1237,7 @@ RectTransform:
   - {fileID: 1863902090}
   - {fileID: 45043721}
   - {fileID: 1278627010}
+  - {fileID: 2087074784}
   - {fileID: 1483942982}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -2888,6 +2889,7 @@ MonoBehaviour:
   phraseNumber: 0
   myCharacter: Alice
   audioSourceSource:
+  - {fileID: 865033569}
   - {fileID: 865033569}
   - {fileID: 865033569}
   - {fileID: 865033569}
@@ -4779,7 +4781,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 278297824}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
