@@ -552,6 +552,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 11455358}
   - {fileID: 11459112}
+  - {fileID: 114672238818568528}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -1083,4 +1084,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c91716ebbe24007a3a25dec423b5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScript: {fileID: 0}
+  tempNumber: 0
