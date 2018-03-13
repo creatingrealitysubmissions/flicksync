@@ -46,7 +46,7 @@ public class WatsonIntegration : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		line.text = LoadScript.instance.script.lines [phraseNumber].description [0];
-		if (ExampleStreaming.instance.Active) {
+		if (ExampleStreaming.instance.Active && myCharacter == LoadScript.instance.script.lines [phraseNumber].character) {
 			recordingDot.color = Color.red;
 		} else {
 			recordingDot.color = Color.white;
