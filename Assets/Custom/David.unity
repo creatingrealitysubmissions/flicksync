@@ -1237,11 +1237,7 @@ RectTransform:
   - {fileID: 1863902090}
   - {fileID: 45043721}
   - {fileID: 1278627010}
-<<<<<<< HEAD
   - {fileID: 1483942982}
-=======
-  - {fileID: 2087074784}
->>>>>>> f3b656d6bd47ecbe2b91a9e065ec15ecd5733bf6
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2897,11 +2893,7 @@ MonoBehaviour:
   - {fileID: 865033569}
   line: {fileID: 45043723}
   recordedText: {fileID: 1863902092}
-<<<<<<< HEAD
   countDown: {fileID: 1483942984}
-=======
-  countDown: {fileID: 2087074787}
->>>>>>> f3b656d6bd47ecbe2b91a9e065ec15ecd5733bf6
   recordingDot: {fileID: 1278627011}
 --- !u!114 &865033566
 MonoBehaviour:
