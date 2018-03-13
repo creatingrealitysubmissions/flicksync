@@ -6,12 +6,14 @@ using Photon;
 public class mutiplayerCommunication : Photon.MonoBehaviour {
 
 	public WatsonIntegration currentScript;
+	public int tempNumber;
 
 	void Start(){
 		
 		currentScript = WatsonIntegration.instance;
 
 	}
+
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
@@ -25,5 +27,6 @@ public class mutiplayerCommunication : Photon.MonoBehaviour {
 			// Network player, receive data
 			this.currentScript.phraseNumber = (int)stream.ReceiveNext();
 		}
+		tempNumber = this.currentScript.phraseNumber;
 	}
 }
