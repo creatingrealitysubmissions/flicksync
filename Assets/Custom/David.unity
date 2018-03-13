@@ -2884,7 +2884,10 @@ MonoBehaviour:
   currentTime: 
   phraseNumber: 0
   myCharacter: Alice
-  audioSources: []
+  audioSourceSource:
+  - {fileID: 865033569}
+  - {fileID: 865033569}
+  - {fileID: 865033569}
   line: {fileID: 45043723}
   recordedText: {fileID: 1863902092}
   recordingDot: {fileID: 1278627011}
