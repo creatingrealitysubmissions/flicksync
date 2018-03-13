@@ -26,11 +26,12 @@ using UnityEngine.UI;
 
 public class ExampleStreaming : MonoBehaviour
 {
-    private string _username = null;
-    private string _password = null;
-    private string _url = null;
+	private string _username = "c2f0568f-19ff-4aa3-aeb6-e9d34c844113";
+	private string _password = "mU7r10Ntpf7F";
+	private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
     
     public Text ResultsField;
+	public GameObject cube;
 
     private int _recordingRoutine = 0;
     private string _microphoneID = null;
@@ -176,6 +177,7 @@ public class ExampleStreaming : MonoBehaviour
                     string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                     Log.Debug("ExampleStreaming.OnRecognize()", text);
                     ResultsField.text = text;
+					cube.GetComponent<UnityEngine.UI.Text> ().text = text.ToLower();
                 }
 
                 if (res.keywords_result != null && res.keywords_result.keyword != null)
