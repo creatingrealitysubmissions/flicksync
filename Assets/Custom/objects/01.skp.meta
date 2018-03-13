@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 39400dbc3ad0d421daa1362f65a181ec
+timeCreated: 1520924245
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000020000000300000004000000050000000600000007000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 51e596e24a1c8ed112315ccb983f41ec
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 14.387381, y: 8.045336, z: -14.986878}
+      lookAt: {x: 14.387381, y: 8.045336, z: 8.279171}
+      up: {x: 0, y: 1, z: 0}
+      fov: 45
+      aspectRatio: 0
+      orthoSize: 156.10915
+      isPerspective: 0
+    scenes:
+    - camera:
+        position: {x: 14.387381, y: 8.045336, z: -14.986878}
+        lookAt: {x: 14.387381, y: 8.045336, z: 8.279171}
+        up: {x: 0, y: 1, z: 0}
+        fov: 45
+        aspectRatio: 0
+        orthoSize: 156.10915
+        isPerspective: 0
+      name: 01
+    - camera:
+        position: {x: 1.7325985, y: 3.3788419, z: -14.658099}
+        lookAt: {x: 0.546787, y: 3.416797, z: -4.29347}
+        up: {x: 0.0004135482, y: 0.9999934, z: -0.0036146333}
+        fov: 30
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: 02
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: AM113_004_Platanus
+    100004: AM113_004_Platanus 1
+    100006: Group 1
+    100008: Group4
+    400000: //RootNode
+    400002: AM113_004_Platanus
+    400004: AM113_004_Platanus 1
+    400006: Group 1
+    400008: Group4
+    2100000: _defaultMat
+    2100002: 01
+    2100004: AM113_004_Platanus_Bark
+    2100006: AM113_004_Platanus
+    2300000: AM113_004_Platanus
+    2300002: AM113_004_Platanus 1
+    2300004: Group 1
+    3300000: AM113_004_Platanus
+    3300002: AM113_004_Platanus 1
+    3300004: Group 1
+    4300000: Mesh Group 1
+    4300002: Mesh AM113_004_Platanus
+    4300004: Mesh AM113_004_Platanus
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: 6d9c739e7e33b4708813dbb0c2baea64
+timeCreated: 1520924773
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f0000002000000021000000
+  assetHash:
+    serializedVersion: 2
+    Hash: cd2a72c9b0e0e1d6aee75ef262c13a14
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 3.491058, y: 1.3113735, z: -2.6442666}
+      lookAt: {x: 0.40754187, y: -0.28598183, z: 1.1688545}
+      up: {x: -0.19474746, y: 0.9508289, z: 0.24082756}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: breadboard end
+    100002: breadboard end 1
+    100004: English farm table
+    100006: leg
+    100008: leg 1
+    100010: leg 2
+    100012: leg 3
+    100014: long stretcher
+    100016: long stretcher 1
+    100018: //RootNode
+    100020: short stretcher
+    100022: short stretcher 1
+    100024: top board
+    100026: top board 1
+    100028: top board 2
+    100030: top board 3
+    100032: top support
+    100034: top support 1
+    400000: breadboard end
+    400002: breadboard end 1
+    400004: English farm table
+    400006: leg
+    400008: leg 1
+    400010: leg 2
+    400012: leg 3
+    400014: long stretcher
+    400016: long stretcher 1
+    400018: //RootNode
+    400020: short stretcher
+    400022: short stretcher 1
+    400024: top board
+    400026: top board 1
+    400028: top board 2
+    400030: top board 3
+    400032: top support
+    400034: top support 1
+    2100000: _2
+    2300000: breadboard end
+    2300002: breadboard end 1
+    2300004: leg
+    2300006: leg 1
+    2300008: leg 2
+    2300010: leg 3
+    2300012: long stretcher
+    2300014: long stretcher 1
+    2300016: short stretcher
+    2300018: short stretcher 1
+    2300020: top board
+    2300022: top board 1
+    2300024: top board 2
+    2300026: top board 3
+    2300028: top support
+    2300030: top support 1
+    3300000: breadboard end
+    3300002: breadboard end 1
+    3300004: leg
+    3300006: leg 1
+    3300008: leg 2
+    3300010: leg 3
+    3300012: long stretcher
+    3300014: long stretcher 1
+    3300016: short stretcher
+    3300018: short stretcher 1
+    3300020: top board
+    3300022: top board 1
+    3300024: top board 2
+    3300026: top board 3
+    3300028: top support
+    3300030: top support 1
+    4300000: Mesh short stretcher
+    4300002: Mesh breadboard end
+    4300004: Mesh top support
+    4300006: Mesh leg
+    4300008: Mesh top board
+    4300010: Mesh long stretcher
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
