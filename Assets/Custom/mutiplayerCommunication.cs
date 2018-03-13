@@ -7,6 +7,12 @@ public class mutiplayerCommunication : Photon.MonoBehaviour {
 
 	public WatsonIntegration currentScript;
 
+	void Start(){
+		
+		currentScript = WatsonIntegration.instance;
+
+	}
+
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting)
