@@ -261,7 +261,7 @@ public byte AudioGroup
                         Debug.LogFormat("PUNVoice: Setting recorder's source to microphone device {0}", micDev);
                     }
                     // mic can ignore passed sampling rate and set it's own
-                    var mic = new MicWrapper(micDev, (int)pvs.SamplingRate);
+                    var mic = new MicWrapper(micDev, (int)pvs.SamplingRate, ExampleStreaming.instance._recording);
                     audioSource = mic;
                 }
                 break;

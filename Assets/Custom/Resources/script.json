@@ -6,223 +6,223 @@
 		"character":"Alice",
 		"type":"line",
 		"description":["Very uncomfortable for the Dormouse. Only, as it's asleep, I suppose it doesn't mind."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_1"
 	},
 	{
-		"character":"Hatter",
+		"character":"Dormouse",
+		"type":"line",
+		"description":["No room!"],
+		"audioFile":"Sound\Characters\Doremouse\Doremouse_1"
+	},
+	{
+		"character":"Hare",
 		"type":"line",
 		"description":["No room! No room!"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_1"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["There's plenty of room!"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_2"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["Have some wine."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_2"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["I don't see any wine."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_3"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["There isn't any."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_3"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["Then it wasn't very civil of you to offer it."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_4"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["It wasn't very civil of you to sit down without being invited."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_4"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["I didn't know it was your table. It's laid for a great many more than three."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_5"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Your hair wants cutting."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_2"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["You should learn not to make personal remarks. It's very rude."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_6"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Why is a raven like a writing-desk?"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_3"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["Come, we shall have some fun now! I'm glad they've begun asking riddles. - I believe I can guess that."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_7"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["Do you mean that you think you can find out the answer to it?"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_5"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["Exactly so."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_8"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["Then you should say what you mean."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_6"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["I do. At least - at least I mean what I say - that's the same thing, you know."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_9"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Not the same thing a bit! You might just as well say that 'I see what I eat' is the same thing as 'I eat what I see!'"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_4"
 	},
 	{
 		"character":"Dormouse",
 		"type":"line",
 		"description":["You might just as well say, that 'I breathe when I sleep' is the same thing as 'I sleep when I breathe'!"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Doremouse\Doremouse_2"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
-		"description":["It is the same thing with you."],
-		"audioFile":"butter"
-	},
-	{
-		"character":"Hatter",
-		"type":"line",
-		"description":["What day of the month is it?"],
-		"audioFile":"butter"
+		"description":["It is the same thing with you. What day of the month is it?"],
+		"audioFile":"Sound\Characters\Hatter\Hatter_5"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["The fourth."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_10"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Two days wrong! I told you butter wouldn't suit the works!"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_6"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["It was the best butter."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_7"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Yes, but some crumbs must have got in as well, you shouldn't have put it in with the bread-knife."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_7"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["It was the best butter, you know."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_8"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["What a funny watch! It tells the day of the month, and doesn't tell what o'clock it is!"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_11"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Why should it? Does your watch tell you what year it is?"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_8"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["Of course not. But that's because it stays the same year for such a long time together."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_12"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Which is just the case with mine."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_9"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["I don't quite understand you."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_13"
 	},
 	{
 		"character":"Dormouse",
 		"type":"line",
 		"description":["Of course, of course; just what I was going to remark myself."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Doremouse\Doremouse_3"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["Have you guessed the riddle yet?"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_10"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["No, I give it up. What's the answer?"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_14"
 	},
 	{
 		"character":"Hatter",
 		"type":"line",
 		"description":["I haven't the slightest idea."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Hatter\Hatter_11"
 	},
 	{
 		"character":"Hare",
 		"type":"line",
 		"description":["Nor I"],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\March Hare\March Hare_9"
 	},
 	{
 		"character":"Alice",
 		"type":"line",
 		"description":["I think you might do something better with the time than waste it in asking riddles that have no answers."],
-		"audioFile":"butter"
+		"audioFile":"Sound\Characters\Alice\Alice_15"
 	}
 	]
 }
