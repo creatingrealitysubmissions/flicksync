@@ -69,6 +69,7 @@ public class ConnectAndJoinRandom : Photon.MonoBehaviour
 
     public void OnJoinedRoom()
     {
+		WatsonIntegration.instance.myCharacter = LoadScript.instance.script.playableCharacters[(PhotonNetwork.room.PlayerCount - 1)];
         Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room. From here on, your game would be running. For reference, all callbacks are listed in enum: PhotonNetworkingMessage");
     }
 }
