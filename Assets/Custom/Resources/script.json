@@ -1,0 +1,10 @@
+{
+	"lines":[
+	{
+		"character":"Alice",
+		"type":"line",
+		"description":["it was the best butter", "twas the best butter"],
+		"audioFile":"butter"
+	}
+	]
+}
