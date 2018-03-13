@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon;
 
-public class WatsonIntegration : MonoBehaviour {
+public class WatsonIntegration : Photon.MonoBehaviour {
 
 	public static WatsonIntegration instance;
 
@@ -137,5 +138,19 @@ public class WatsonIntegration : MonoBehaviour {
 		amountAllowedWrong = ssize.Length/2;
 		correct = true;
 		allowedError = amountAllowedWrong;
+	}
+
+	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting)
+		{
+			// We own this player: send the others our data
+			stream.SendNext(phraseNumber);
+		}
+		else
+		{
+			// Network player, receive data
+			phraseNumber = (int)stream.ReceiveNext();
+		}
 	}
 }
