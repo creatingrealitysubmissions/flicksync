@@ -19,6 +19,8 @@ public class WatsonIntegration : MonoBehaviour {
 	public string myCharacter = "Alice";
 	private int amountAllowedWrong;
 	private bool correct;
+	public List <AudioSource> audioSourceSource;
+	Dictionary<string, AudioSource> audioSources;
 
 	public Text line, recordedText;
 	public Image recordingDot;
@@ -27,6 +29,12 @@ public class WatsonIntegration : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		instance = this;
+		audioSources = new Dictionary<string, AudioSource> ();
+		int i = 0;
+		foreach (string str in LoadScript.instance.script.playableCharacters) {
+			audioSources.Add (str, audioSourceSource[i]);
+			i++;
+		}
 		//LoadScript.instance.script.lines [0].character
 		//First we get all the phrases that Alice says, eliminating punctuation and trim it and set it to all lower case
 		/*phrasesToSay = new ArrayList();
@@ -89,16 +97,24 @@ public class WatsonIntegration : MonoBehaviour {
 //			ExampleStreaming.instance.Active = false;
 //			ExampleStreaming.instance.Active = true;
 //		}
+
 	}
 
 	void NextPhrase(){
 		phraseNumber++;
 		if (LoadScript.instance.script.lines [phraseNumber].character != myCharacter) {
 			ExampleStreaming.instance.Active = false;
-			Invoke ("NextPhrase", 1);
 		} else {
 			ExampleStreaming.instance.Active = true;
 		}
+	}
+
+	IEnumerator PlayAIAudio(){
+		AudioClip clip = (AudioClip)Resources.Load (LoadScript.instance.script.lines [phraseNumber].audioFile);
+		audioSources [LoadScript.instance.script.lines [phraseNumber].character].clip = clip;
+		audioSources [LoadScript.instance.script.lines [phraseNumber].character].Play ();
+		yield return new WaitForSeconds (clip.length);
+		Invoke ("NextPhrase", 0.5f);
 	}
 
 	public void UpdateTimerUI(){
