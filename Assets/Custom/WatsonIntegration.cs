@@ -85,10 +85,10 @@ public class WatsonIntegration : MonoBehaviour {
 				//Debug.Log ("No Phrase");
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.A)) {
-			ExampleStreaming.instance.Active = false;
-			ExampleStreaming.instance.Active = true;
-		}
+//		if (Input.GetKeyDown (KeyCode.A)) {
+//			ExampleStreaming.instance.Active = false;
+//			ExampleStreaming.instance.Active = true;
+//		}
 	}
 
 	void NextPhrase(){
