@@ -95,7 +95,7 @@ public class WatsonIntegration : MonoBehaviour {
 		phraseNumber++;
 		if (LoadScript.instance.script.lines [phraseNumber].character != myCharacter) {
 			ExampleStreaming.instance.Active = false;
-			Invoke ("NextPhrase", 1);
+			//Invoke ("NextPhrase", 1);
 		} else {
 			ExampleStreaming.instance.Active = true;
 		}
