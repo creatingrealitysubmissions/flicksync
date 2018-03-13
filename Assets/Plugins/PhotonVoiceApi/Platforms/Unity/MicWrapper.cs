@@ -8,7 +8,7 @@ public class MicWrapper : ExitGames.Client.Photon.Voice.IAudioReader<float>
     private AudioClip mic;
     private string device;
 
-    public MicWrapper(string device, int suggestedFrequency)
+    public MicWrapper(string device, int suggestedFrequency, AudioClip setClip = null)
     {
         if (Microphone.devices.Length < 1)
         {
@@ -26,7 +26,11 @@ public class MicWrapper : ExitGames.Client.Photon.Voice.IAudioReader<float>
                 suggestedFrequency, minFreq, maxFreq);
             frequency = maxFreq;
         }
-        this.mic = Microphone.Start(device, true, 1, frequency);
+		if (setClip != null) {
+			//this.mic = Microphone.Start (device, true, 1, frequency);
+		} else {
+		}
+		this.mic = setClip;
     }
 
     public int SamplingRate { get { return this.mic.frequency; } }
@@ -34,7 +38,7 @@ public class MicWrapper : ExitGames.Client.Photon.Voice.IAudioReader<float>
 
     public void Dispose()
     {
-		Microphone.End(this.device);
+		//Microphone.End(this.device);
     }
     
     private int micPrevPos;

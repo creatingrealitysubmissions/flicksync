@@ -26,6 +26,8 @@ using UnityEngine.UI;
 
 public class ExampleStreaming : MonoBehaviour
 {
+	public static ExampleStreaming instance;
+
 	private string _username = "c2f0568f-19ff-4aa3-aeb6-e9d34c844113";
 	private string _password = "mU7r10Ntpf7F";
 	private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
@@ -35,14 +37,15 @@ public class ExampleStreaming : MonoBehaviour
 
     private int _recordingRoutine = 0;
     private string _microphoneID = null;
-    private AudioClip _recording = null;
+    public AudioClip _recording = null;
     private int _recordingBufferSize = 1;
-    private int _recordingHZ = 22050;
+	private int _recordingHZ = 44100;
 
-    private SpeechToText _speechToText;
+    public SpeechToText _speechToText;
 
     void Start()
     {
+		instance = this;
         LogSystem.InstallDefaultReactors();
 
         //  Create credential and instantiate service
@@ -68,7 +71,7 @@ public class ExampleStreaming : MonoBehaviour
                 _speechToText.MaxAlternatives = 0;
                 _speechToText.EnableInterimResults = true;
                 _speechToText.OnError = OnError;
-                _speechToText.InactivityTimeout = -1;
+                _speechToText.InactivityTimeout = 3;
                 _speechToText.ProfanityFilter = false;
                 _speechToText.SmartFormatting = true;
                 _speechToText.SpeakerLabels = false;
@@ -95,7 +98,7 @@ public class ExampleStreaming : MonoBehaviour
     {
         if (_recordingRoutine != 0)
         {
-            Microphone.End(_microphoneID);
+            //Microphone.End(_microphoneID);
             Runnable.Stop(_recordingRoutine);
             _recordingRoutine = 0;
         }

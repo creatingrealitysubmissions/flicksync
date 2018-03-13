@@ -1,4 +1,6 @@
 {
+	"scene":"TeaParty",
+	"playableCharacters":["Alice", "Hatter", "Hare"],
 	"lines":[
 	{
 		"character":"Alice",

@@ -9,7 +9,7 @@ public class LoadScript : MonoBehaviour {
 	public static LoadScript instance;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		LoadScript.instance = this;
 		string json = "";
 		json = Resources.Load ("script").ToString();

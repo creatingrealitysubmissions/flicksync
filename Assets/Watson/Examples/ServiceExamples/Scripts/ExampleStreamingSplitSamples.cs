@@ -104,7 +104,7 @@ public class ExampleStreamingSplitSamples : MonoBehaviour
     {
         if (_recordingRoutine != 0)
         {
-            Microphone.End(_microphoneID);
+            //Microphone.End(_microphoneID);
             Runnable.Stop(_recordingRoutine);
             _recordingRoutine = 0;
         }
