@@ -41,7 +41,7 @@ public class ConnectAndJoinRandom : Photon.MonoBehaviour
     public virtual void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster() was called by PUN. Now this client is connected and could join a room. Calling: PhotonNetwork.JoinRandomRoom();");
-		PhotonNetwork.JoinRoom("Alice");
+		PhotonNetwork.JoinRandomRoom();
     }
 
     public virtual void OnJoinedLobby()
@@ -55,6 +55,10 @@ public class ConnectAndJoinRandom : Photon.MonoBehaviour
         Debug.Log("OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one. Calling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
         PhotonNetwork.CreateRoom("Alice", new RoomOptions() { MaxPlayers = 4 }, null);
     }
+
+	public virtual void OnPhotonJoinFailed(){
+
+	}
 
     // the following methods are implemented to give you some context. re-implement them as needed.
 
