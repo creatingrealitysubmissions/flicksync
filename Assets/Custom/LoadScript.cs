@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class LoadScript : MonoBehaviour {
 
-	ScriptConfig script;
+	public ScriptConfig script;
+
+	public static LoadScript instance;
 
 	// Use this for initialization
 	void Start () {
+		LoadScript.instance = this;
 		string json = "";
 		json = Resources.Load ("script").ToString();
 		Debug.Log (json);

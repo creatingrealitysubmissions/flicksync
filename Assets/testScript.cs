@@ -9,35 +9,47 @@ public class testScript : MonoBehaviour {
 	private int hourCount;
 	public string currentTime;
 
+	private ArrayList phrasesToSay;
 	private string phraseToSay;
-
 	private int phraseToSayLength;
+	private int phraseNumber;
 	private int amountAllowedWrong;
 	private bool correct;
+
+	private int allowedError;
 	// Use this for initialization
 	void Start () {
-		phraseToSay = "it was the best butter";
-		string[] ssize = phraseToSay.Split(null);
-		phraseToSayLength = ssize.Length;
-		amountAllowedWrong = ssize.Length/2;
+		//LoadScript.instance.script.lines [0].character
+		//First we get all the phrases that Alice says, eliminating punctuation and trim it and set it to all lower case
+		phrasesToSay = new ArrayList();
+		for (int i = 0; i < LoadScript.instance.script.lines.Length; i++) {
+			if (LoadScript.instance.script.lines [i].character.Contains ("Alice")) {
+				string toAdd = LoadScript.instance.script.lines [i].description [0];
+				toAdd = toAdd.Replace("\\p{P}+", "");
+				toAdd = toAdd.Trim ();
+				toAdd = toAdd.ToLower ();
+				phrasesToSay.Add (toAdd);
+			}
+		}
+
+		phraseNumber = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		correct = true;
-		int allowedError = amountAllowedWrong;
+		setup();
 		UpdateTimerUI();
-		string currentPhrase = GetComponent<UnityEngine.UI.Text> ().text;
-		if (currentPhrase.Contains ("final")) {
-			int index = currentPhrase.IndexOf("(");
+
+		string currentSpokenPhrase = GetComponent<UnityEngine.UI.Text> ().text;
+		if (currentSpokenPhrase.Contains ("final")) {
+			int index = currentSpokenPhrase.IndexOf("(");
 			if (index > 0)
-				currentPhrase = currentPhrase.Substring(0, index);
-			currentPhrase = currentPhrase.Trim ();
-			string[] ssize = currentPhrase.Split(null);
+				currentSpokenPhrase = currentSpokenPhrase.Substring(0, index);
+			currentSpokenPhrase = currentSpokenPhrase.Trim ();
+			string[] ssize = currentSpokenPhrase.Split(null);
 
 			for (int i = 0; i < ssize.Length; i++) {
 				if (!phraseToSay.Contains (ssize [i])) {
-					correct = false;
 					allowedError--;
 				}
 				//Debug.Log (ssize [i]);
@@ -47,10 +59,12 @@ public class testScript : MonoBehaviour {
 				allowedError = allowedError - (phraseToSayLength - ssize.Length);
 			}
 
-			if (correct==true || allowedError >= 0) {
+			if (allowedError >= 0) {
 				Debug.Log ("Correct!");
+				phraseNumber++;
 			}
 			else{
+				Debug.Log ("Phrase Number: " + phraseNumber + ", currentSpokenPhrase: " + currentSpokenPhrase + ", phraseToSay " + phraseToSay);
 				Debug.Log (currentTime+GetComponent<UnityEngine.UI.Text> ().text);
 			}
 		}
@@ -69,5 +83,14 @@ public class testScript : MonoBehaviour {
 			hourCount++;
 			minuteCount = 0;
 		}    
+	}
+
+	public void setup(){
+		phraseToSay = (string)phrasesToSay[phraseNumber];
+		string[] ssize = phraseToSay.Split(null);
+		phraseToSayLength = ssize.Length;
+		amountAllowedWrong = ssize.Length/2;
+		correct = true;
+		allowedError = amountAllowedWrong;
 	}
 }
