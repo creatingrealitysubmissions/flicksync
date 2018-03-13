@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WatsonIntegration : MonoBehaviour {
-	
+
+	public static WatsonIntegration instance;
+
 	private float secondsCount;
 	private int minuteCount;
 	private int hourCount;
@@ -24,6 +26,7 @@ public class WatsonIntegration : MonoBehaviour {
 	private int allowedError;
 	// Use this for initialization
 	void Start () {
+		instance = this;
 		//LoadScript.instance.script.lines [0].character
 		//First we get all the phrases that Alice says, eliminating punctuation and trim it and set it to all lower case
 		/*phrasesToSay = new ArrayList();
