@@ -9,6 +9,7 @@ public class testScript : MonoBehaviour {
 	private int hourCount;
 	public string currentTime;
 	private string phraseToSay;
+	private bool correct;
 	// Use this for initialization
 	void Start () {
 		phraseToSay = "It was the best butter";
@@ -16,17 +17,28 @@ public class testScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		correct = true;
 		UpdateTimerUI();
 		string currentPhrase = GetComponent<UnityEngine.UI.Text> ().text;
 		if (currentPhrase.Contains ("final")) {
-			string[] ssize = currentPhrase.Split(null);
-//			for (int i = 0; i < ssize.Length (); i++) {
+//			string[] ssize = currentPhrase.Split(null);
+//			for (int i = 0; i < ssize.Length; i++) {
+//				if(phraseToSay.Contains(ssize[i])){
+//				}
+//				else{
+//					correct=false;
+//				}
+//					
 //			}
-			if (currentPhrase.Contains("best butter")) {
+			if(!currentPhrase.Contains("best butter")){
+				correct = false;
+			}
+			if (correct==true) {
 				Debug.Log ("Correct!");
 			}
-			else
-			Debug.Log (currentTime+GetComponent<UnityEngine.UI.Text> ().text);
+			else{
+				Debug.Log (currentTime+GetComponent<UnityEngine.UI.Text> ().text);
+			}
 		}
 		else
 		Debug.Log ("No Phrase");
