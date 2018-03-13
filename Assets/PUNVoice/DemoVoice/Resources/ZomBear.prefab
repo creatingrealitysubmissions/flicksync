@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 11416676}
   - component: {fileID: 11479992}
   - component: {fileID: 114037152588837172}
+  - component: {fileID: 114672238818568528}
   m_Layer: 0
   m_Name: ZomBear
   m_TagString: Player
@@ -395,7 +396,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -407,7 +408,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -419,7 +420,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!92 &9277726
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1068,6 +1069,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66f551010a489426b95148eebeba2df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScript: {fileID: 0}
+--- !u!114 &114672238818568528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c91716ebbe24007a3a25dec423b5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentScript: {fileID: 0}
