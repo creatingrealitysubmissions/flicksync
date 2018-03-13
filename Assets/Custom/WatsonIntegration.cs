@@ -12,6 +12,7 @@ public class WatsonIntegration : Photon.MonoBehaviour {
 	private int minuteCount;
 	private int hourCount;
 	public string currentTime;
+	public float currentTimer;
 
 	private ArrayList phrasesToSay;
 	private string phraseToSay;
@@ -20,10 +21,11 @@ public class WatsonIntegration : Photon.MonoBehaviour {
 	public string myCharacter = "Alice";
 	private int amountAllowedWrong;
 	private bool correct;
+	private bool timeOver;
 	public List <AudioSource> audioSourceSource;
 	Dictionary<string, AudioSource> audioSources;
 
-	public Text line, recordedText;
+	public Text line, recordedText, countDown;
 	public Image recordingDot;
 
 	private int allowedError;
@@ -50,10 +52,13 @@ public class WatsonIntegration : Photon.MonoBehaviour {
 		}*/
 
 		phraseNumber = 0;
+		currentTimer = 6f;
+		timeOver = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		UpdateTimerUI ();
 		line.text = LoadScript.instance.script.lines [phraseNumber].description [0];
 		if (ExampleStreaming.instance.Active && myCharacter == LoadScript.instance.script.lines [phraseNumber].character) {
 			recordingDot.color = Color.red;
@@ -61,9 +66,8 @@ public class WatsonIntegration : Photon.MonoBehaviour {
 			recordingDot.color = Color.white;
 		}
 		if (LoadScript.instance.script.lines [phraseNumber].character == myCharacter) {
+			countDownTimer ();
 			setup ();
-			UpdateTimerUI ();
-
 			string currentSpokenPhrase = recordedText.text.ToLower();
 			if (currentSpokenPhrase.Contains ("final")) {
 				int index = currentSpokenPhrase.IndexOf ("(");
@@ -151,6 +155,23 @@ public class WatsonIntegration : Photon.MonoBehaviour {
 		{
 			// Network player, receive data
 			phraseNumber = (int)stream.ReceiveNext();
+			timeOver = false;
+		}
+	}
+
+	void countDownTimer(){
+		if (currentTimer <= 0f) {
+			timeOver = true;
+			currentTimer = 6f;
+		} 
+		else {
+			currentTimer-=Time.deltaTime;
+		}
+		int tempTimer = (int)currentTimer;
+		string toDisplay = tempTimer.ToString ();
+		if (timeOver == false) {
+			countDown.text = toDisplay;
+		} else { countDown.text = "";
 		}
 	}
 }
