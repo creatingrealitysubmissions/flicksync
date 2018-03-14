@@ -94,7 +94,12 @@ ModelImporter:
     7400004: metarigAction
     9500000: //RootNode
     13700000: Hare
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: b91f7cdde49304a8abaa19079b0ddc31, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
