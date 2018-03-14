@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Expressions : MonoBehaviour {
+
+	public string character = "Dormouse";
+	public float changeTime;
+	public Sprite[] expressions;
+	public Sprite resting;
+	public UnityEngine.UI.Image image;
+	int currentExpression = 0;
+	
+	// Update is called once per frame
+	void Update () {
+		if (LoadScript.instance.script.lines [WatsonIntegration.instance.phraseNumber].character == character) {
+			if (changeTime + 0.3f < Time.time) {
+				changeTime = Time.time;
+				currentExpression++;
+				if (currentExpression == expressions.Length) {
+					currentExpression = 0;
+				}
+				image.sprite = expressions [currentExpression];
+			}
+		}else {
+			image.sprite = resting;
+		}
+	}
+}
