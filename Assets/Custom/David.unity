@@ -2816,7 +2816,7 @@ MonoBehaviour:
   - {fileID: 865033569}
   - {fileID: 865033569}
   correctSound: {fileID: 8300000, guid: ce75ca1167ea5a64ba5968d838b85501, type: 3}
-  wrongSound: {fileID: 8300000, guid: b16168f19fb7b4b2a8a31ab8eea4fa3d, type: 3}
+  wrongSound: {fileID: 8300000, guid: f9edc27d82c2fbf409bbc29b14040234, type: 3}
   tickTockSound: {fileID: 8300000, guid: ce75ca1167ea5a64ba5968d838b85501, type: 3}
   sourceForResponses: {fileID: 865033573}
   line: {fileID: 921192186}

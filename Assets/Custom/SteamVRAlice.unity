@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2832,6 +2832,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e7ec9547ed1a4a59be205961d23906b, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &393739773 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 393739772}
 --- !u!1 &409972510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,10 +3835,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!4 &563415344 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400016, guid: 4786f95f662eb448dabbf29f76af517c, type: 3}
-  m_PrefabInternal: {fileID: 1669490467}
 --- !u!95 &563415345
 Animator:
   serializedVersion: 3
@@ -4551,10 +4551,6 @@ GameObject:
 --- !u!1 &644198697 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 0e7ec9547ed1a4a59be205961d23906b, type: 3}
-  m_PrefabInternal: {fileID: 393739772}
---- !u!4 &644198698 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 0e7ec9547ed1a4a59be205961d23906b, type: 3}
   m_PrefabInternal: {fileID: 393739772}
 --- !u!82 &644198699
 AudioSource:
@@ -6075,6 +6071,7 @@ GameObject:
   - component: {fileID: 865033572}
   - component: {fileID: 865033569}
   - component: {fileID: 865033570}
+  - component: {fileID: 865033573}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -6110,10 +6107,10 @@ MonoBehaviour:
   - {fileID: 563415343}
   - {fileID: 644198699}
   - {fileID: 450767927}
-  correctSound: {fileID: 0}
-  wrongSound: {fileID: 0}
-  tickTockSound: {fileID: 0}
-  sourceForResponses: {fileID: 0}
+  correctSound: {fileID: 8300000, guid: b9bfc2527ee17c04bb7c73cea1f1ed55, type: 3}
+  wrongSound: {fileID: 8300000, guid: f9edc27d82c2fbf409bbc29b14040234, type: 3}
+  tickTockSound: {fileID: 8300000, guid: 145d3c8294aa99c4087623af1270a770, type: 3}
+  sourceForResponses: {fileID: 865033573}
   line: {fileID: 45043723}
   recordedText: {fileID: 1863902092}
   countDown: {fileID: 1483942984}
@@ -6327,6 +6324,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce24814becb184e6db499064d233b8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &865033573
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865033564}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &878440545
 Prefab:
   m_ObjectHideFlags: 0
@@ -7355,7 +7432,7 @@ RectTransform:
   m_Children:
   - {fileID: 373634108}
   m_Father: {fileID: 425778460}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -22.1, y: -13.6, z: 63.61}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8018,7 +8095,7 @@ RectTransform:
   m_Children:
   - {fileID: 1921357051}
   m_Father: {fileID: 745488369}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.4}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10237,9 +10314,9 @@ Transform:
   - {fileID: 683800431}
   - {fileID: 1397477022}
   - {fileID: 878440546}
-  - {fileID: 563415344}
+  - {fileID: 1669490468}
   - {fileID: 779159522}
-  - {fileID: 644198698}
+  - {fileID: 393739773}
   - {fileID: 1775017686}
   - {fileID: 450767929}
   - {fileID: 1647445452}
@@ -11097,6 +11174,10 @@ Prefab:
     - {fileID: 9500000, guid: 4786f95f662eb448dabbf29f76af517c, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 4786f95f662eb448dabbf29f76af517c, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &1669490468 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1669490467}
 --- !u!1 &1669619084
 GameObject:
   m_ObjectHideFlags: 0
@@ -11725,8 +11806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeda6d41317f444b900e374895f14e95, type: 3}
 --- !u!4 &1753781342 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4000011368645488, guid: 41c0760bd81dd084283814f0c432b466,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1753781340}
 --- !u!114 &1753781343 stripped
 MonoBehaviour:
@@ -15194,10 +15274,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &2134293819 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
-    type: 2}
+--- !u!4 &2134293819 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 2134293818}
 --- !u!1 &2136835204
 GameObject:
