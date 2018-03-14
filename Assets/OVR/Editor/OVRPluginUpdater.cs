@@ -1,15 +1,15 @@
 ﻿/************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
+Licensed under the Oculus VR Rift SDK License Version 3.3 (the "License");
 you may not use the Oculus VR Rift SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-https://developer.oculus.com/licenses/sdk-3.4.1
+http://www.oculus.com/licenses/LICENSE-3.3
 
 Unless required by applicable law or agreed to in writing, the Oculus VR SDK
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,6 +19,7 @@ limitations under the License.
 
 ************************************************************************************/
 
+#if UNITY_5_4_OR_NEWER
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
@@ -73,11 +74,7 @@ class OVRPluginUpdater
 			Plugins = new Dictionary<BuildTarget, string>()
 			{
 				{ BuildTarget.Android, rootPath + GetPluginBuildTargetSubPath(BuildTarget.Android) },
-#if UNITY_2017_3_OR_NEWER
 				{ BuildTarget.StandaloneOSX, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneOSX) },
-#else
-				{ BuildTarget.StandaloneOSXUniversal, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneOSXUniversal) },
-#endif
 				{ BuildTarget.StandaloneWindows, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneWindows) },
 				{ BuildTarget.StandaloneWindows64, rootPath + GetPluginBuildTargetSubPath(BuildTarget.StandaloneWindows64) },
 			}
@@ -131,7 +128,11 @@ class OVRPluginUpdater
 	private static string GetBundledPluginRootPath()
 	{
 		string basePath = EditorApplication.applicationContentsPath;
+#if UNITY_5_4
+		string pluginPath = @"/VR/Unity";
+#elif UNITY_5_5_OR_NEWER
 		string pluginPath = @"/UnityExtensions/Unity/VR";
+#endif
 
 		return basePath + pluginPath;
 	}
@@ -145,11 +146,7 @@ class OVRPluginUpdater
 			case BuildTarget.Android:
 				path = @"/Android/OVRPlugin.aar";
 				break;
-#if UNITY_2017_3_OR_NEWER
 			case BuildTarget.StandaloneOSX:
-#else
-			case BuildTarget.StandaloneOSXUniversal:
-#endif
 				path = @"/OSXUniversal/OVRPlugin.bundle";
 				break;
 			case BuildTarget.StandaloneWindows:
@@ -265,31 +262,19 @@ class OVRPluginUpdater
 					case BuildTarget.Android:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, true);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-#if UNITY_2017_3_OR_NEWER
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
-#else
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXUniversal, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, false);
-#endif
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, false);
 						pi.SetCompatibleWithEditor(false);
 						break;
-#if UNITY_2017_3_OR_NEWER
 					case BuildTarget.StandaloneOSX:
-#else
-					case BuildTarget.StandaloneOSXUniversal:
-#endif
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, false);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-#if UNITY_2017_3_OR_NEWER
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, true);
-#else
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXUniversal, true);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, true);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, true);
-#endif
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, false);
 						pi.SetCompatibleWithEditor(true);
@@ -301,13 +286,9 @@ class OVRPluginUpdater
 					case BuildTarget.StandaloneWindows:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, false);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-#if UNITY_2017_3_OR_NEWER
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
-#else
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXUniversal, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, false);
-#endif
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, true);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, false);
 						pi.SetCompatibleWithEditor(true);
@@ -319,13 +300,9 @@ class OVRPluginUpdater
 					case BuildTarget.StandaloneWindows64:
 						pi.SetCompatibleWithPlatform(BuildTarget.Android, false);
 						pi.SetPlatformData(BuildTarget.Android, "CPU", "ARMv7");
-#if UNITY_2017_3_OR_NEWER
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSX, false);
-#else
-						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXUniversal, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneOSXIntel64, false);
-#endif
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows, false);
 						pi.SetCompatibleWithPlatform(BuildTarget.StandaloneWindows64, true);
 						pi.SetCompatibleWithEditor(true);
@@ -500,3 +477,5 @@ class OVRPluginUpdater
 		EditorApplication.OpenProject(GetCurrentProjectPath());
 	}
 }
+#endif
+
