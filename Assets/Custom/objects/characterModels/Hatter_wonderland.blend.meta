@@ -37,6 +37,9 @@ ModelImporter:
     100058: toe_R
     100060: upper_arm_L
     100062: upper_arm_R
+    100064: Bone
+    100066: hatter
+    100068: spine_007
     400000: breast_L
     400002: breast_R
     400004: foot_L
@@ -69,15 +72,22 @@ ModelImporter:
     400058: toe_R
     400060: upper_arm_L
     400062: upper_arm_R
+    400064: Bone
+    400066: hatter
+    400068: spine_007
     2100000: unnamed
     2300000: mouse
     3300000: mouse
     4300000: mouse
+    4300002: hatter
     7400000: Default Take
     7400002: sleep
     7400004: sleepTalk
     7400006: stand
+    7400008: idle
+    7400010: talking
     9500000: //RootNode
+    13700000: hatter
   externalObjects: {}
   materials:
     importMaterials: 1
