@@ -22,7 +22,7 @@ public class Expressions : MonoBehaviour {
 		if (LoadScript.instance.script.lines [WatsonIntegration.instance.phraseNumber].character == character) {
             if(charcon != null)
             {
-                charcon.SetBool(0, true);
+                charcon.SetBool("talking", true);
             }
 			if (changeTime + 0.3f < Time.time) {
 				changeTime = Time.time;
@@ -34,8 +34,8 @@ public class Expressions : MonoBehaviour {
 			}
 		}else
         {
-            charcon.SetBool(0, false);
-            //image.sprite = resting;
+            charcon.SetBool("talking", false);
+            image.sprite = resting;
         }
     }
 }
