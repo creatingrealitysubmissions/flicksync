@@ -12,7 +12,7 @@
 		"character":"Dormouse",
 		"type":"line",
 		"description":["No room!"],
-		"audioFile":"Sound\\Characters\\Doremouse\\Doremouse_1"
+		"audioFile":"Sound\\Characters\\Dormouse\\Dormouse_1"
 	},
 	{
 		"character":"Hare",
@@ -120,7 +120,7 @@
 		"character":"Dormouse",
 		"type":"line",
 		"description":["You might just as well say, that 'I breathe when I sleep' is the same thing as 'I sleep when I breathe'!"],
-		"audioFile":"Sound\\Characters\\Doremouse\\Doremouse_2"
+		"audioFile":"Sound\\Characters\\Dormouse\\Dormouse_2"
 	},
 	{
 		"character":"Hatter",
@@ -192,7 +192,7 @@
 		"character":"Dormouse",
 		"type":"line",
 		"description":["Of course, of course; just what I was going to remark myself."],
-		"audioFile":"Sound\\Characters\\Doremouse\\Doremouse_3"
+		"audioFile":"Sound\\Characters\\Dormouse\\Dormouse_3"
 	},
 	{
 		"character":"Hatter",
