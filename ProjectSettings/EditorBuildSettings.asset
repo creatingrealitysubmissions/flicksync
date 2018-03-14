@@ -6,5 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/David2.unity
+    path: Assets/Custom/Intro.unity
+    guid: 5f8b55d14216280439d31032bfc76d07
+  - enabled: 1
+    path: Assets/Custom/SteamVRAlice.unity
+    guid: 24a88b22f6df63a4db8aed4ac82d6280
+  - enabled: 1
+    path: Assets/Custom/David2.unity
     guid: 526dc472a8ce74705813f91d3b01bea8
