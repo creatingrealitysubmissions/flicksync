@@ -343,52 +343,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1030817901
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.651
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.118
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.531
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.717018
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6970547
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 400032, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -91.618004
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 45c3913767f1441e0a9bb0ab0cdbccce, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1001 &1070154714
 Prefab:
   m_ObjectHideFlags: 0
