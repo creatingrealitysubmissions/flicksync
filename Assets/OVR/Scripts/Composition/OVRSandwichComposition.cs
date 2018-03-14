@@ -354,7 +354,7 @@ public class OVRSandwichComposition : OVRCameraComposition
 				return;
 			}
 
-			Graphics.Blit(bgTexture, RenderTexture.active);
+			Graphics.Blit(bgTexture, null as RenderTexture);
 		}
 
 		void OnPostRender()
@@ -365,7 +365,7 @@ public class OVRSandwichComposition : OVRCameraComposition
 				return;
 			}
 
-			Graphics.Blit(fgTexture, RenderTexture.active, alphaBlendMaterial);
+			Graphics.Blit(fgTexture, alphaBlendMaterial);
 		}
 	}
 }

@@ -1,15 +1,15 @@
 /************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
+Licensed under the Oculus VR Rift SDK License Version 3.3 (the "License");
 you may not use the Oculus VR Rift SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-https://developer.oculus.com/licenses/sdk-3.4.1
+http://www.oculus.com/licenses/LICENSE-3.3
 
 Unless required by applicable law or agreed to in writing, the Oculus VR SDK
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -307,11 +307,8 @@ public static class OVRInput
 
 			if ((connectedControllerTypes & controller.controllerType) != 0)
 			{
-				RawButton rawButtonMask = RawButton.Any;
-				RawTouch rawTouchMask = RawTouch.Any;
-
-				if (Get(rawButtonMask, controller.controllerType)
-					|| Get(rawTouchMask, controller.controllerType))
+				if (Get(RawButton.Any, controller.controllerType)
+					|| Get(RawTouch.Any, controller.controllerType))
 				{
 					activeControllerType = controller.controllerType;
 				}
@@ -1572,6 +1569,7 @@ public static class OVRInput
 		public virtual Controller Update()
 		{
 			OVRPlugin.ControllerState4 state = OVRPlugin.GetControllerState4((uint)controllerType);
+            //Debug.Log("MalibuManaged - " + (state.Touches & (uint)RawTouch.LTouchpad) + " " + state.LTouchpad.x + " " + state.LTouchpad.y + " " + state.RTouchpad.x + " " + state.RTouchpad.y);
 
 			if (state.LIndexTrigger >= AXIS_AS_BUTTON_THRESHOLD)
 				state.Buttons |= (uint)RawButton.LIndexTrigger;
@@ -2352,9 +2350,144 @@ public static class OVRInput
 
 	private class OVRControllerGamepadAndroid : OVRControllerBase
 	{
+		private static class AndroidButtonNames
+		{
+			public static readonly KeyCode A = KeyCode.JoystickButton0;
+			public static readonly KeyCode B = KeyCode.JoystickButton1;
+			public static readonly KeyCode X = KeyCode.JoystickButton2;
+			public static readonly KeyCode Y = KeyCode.JoystickButton3;
+			public static readonly KeyCode Start = KeyCode.JoystickButton10;
+			public static readonly KeyCode Back = KeyCode.JoystickButton11;
+			public static readonly KeyCode LThumbstick = KeyCode.JoystickButton8;
+			public static readonly KeyCode RThumbstick = KeyCode.JoystickButton9;
+			public static readonly KeyCode LShoulder = KeyCode.JoystickButton4;
+			public static readonly KeyCode RShoulder = KeyCode.JoystickButton5;
+		}
+
+		private static class AndroidAxisNames
+		{
+			public static readonly string LThumbstickX = "Oculus_GearVR_LThumbstickX";
+			public static readonly string LThumbstickY = "Oculus_GearVR_LThumbstickY";
+			public static readonly string RThumbstickX = "Oculus_GearVR_RThumbstickX";
+			public static readonly string RThumbstickY = "Oculus_GearVR_RThumbstickY";
+			public static readonly string LIndexTrigger = "Oculus_GearVR_LIndexTrigger";
+			public static readonly string RIndexTrigger = "Oculus_GearVR_RIndexTrigger";
+			public static readonly string DpadX = "Oculus_GearVR_DpadX";
+			public static readonly string DpadY = "Oculus_GearVR_DpadY";
+		}
+
+		private bool joystickDetected = false;
+		private float joystickCheckInterval = 1.0f;
+		private float joystickCheckTime = 0.0f;
+
 		public OVRControllerGamepadAndroid()
 		{
 			controllerType = Controller.Gamepad;
+		}
+
+		private bool ShouldUpdate()
+		{
+			// Use Unity's joystick detection as a quick way to determine joystick availability.
+			if ((Time.realtimeSinceStartup - joystickCheckTime) > joystickCheckInterval)
+			{
+				joystickCheckTime = Time.realtimeSinceStartup;
+				joystickDetected = false;
+				var joystickNames = UnityEngine.Input.GetJoystickNames();
+
+				for (int i = 0; i < joystickNames.Length; i++)
+				{
+					if (joystickNames[i] != String.Empty)
+					{
+						joystickDetected = true;
+						break;
+					}
+				}
+			}
+
+			return joystickDetected;
+		}
+
+		public override Controller Update()
+		{
+			if (!ShouldUpdate())
+			{
+				return Controller.None;
+			}
+
+			OVRPlugin.ControllerState4 state = new OVRPlugin.ControllerState4();
+
+			state.ConnectedControllers = (uint)Controller.Gamepad;
+
+			if (Input.GetKey(AndroidButtonNames.A))
+				state.Buttons |= (uint)RawButton.A;
+			if (Input.GetKey(AndroidButtonNames.B))
+				state.Buttons |= (uint)RawButton.B;
+			if (Input.GetKey(AndroidButtonNames.X))
+				state.Buttons |= (uint)RawButton.X;
+			if (Input.GetKey(AndroidButtonNames.Y))
+				state.Buttons |= (uint)RawButton.Y;
+			if (Input.GetKey(AndroidButtonNames.Start))
+				state.Buttons |= (uint)RawButton.Start;
+			if (Input.GetKey(AndroidButtonNames.Back) || Input.GetKey(KeyCode.Escape))
+				state.Buttons |= (uint)RawButton.Back;
+			if (Input.GetKey(AndroidButtonNames.LThumbstick))
+				state.Buttons |= (uint)RawButton.LThumbstick;
+			if (Input.GetKey(AndroidButtonNames.RThumbstick))
+				state.Buttons |= (uint)RawButton.RThumbstick;
+			if (Input.GetKey(AndroidButtonNames.LShoulder))
+				state.Buttons |= (uint)RawButton.LShoulder;
+			if (Input.GetKey(AndroidButtonNames.RShoulder))
+				state.Buttons |= (uint)RawButton.RShoulder;
+
+			state.LThumbstick.x = Input.GetAxisRaw(AndroidAxisNames.LThumbstickX);
+			state.LThumbstick.y = Input.GetAxisRaw(AndroidAxisNames.LThumbstickY);
+			state.RThumbstick.x = Input.GetAxisRaw(AndroidAxisNames.RThumbstickX);
+			state.RThumbstick.y = Input.GetAxisRaw(AndroidAxisNames.RThumbstickY);
+			state.LIndexTrigger = Input.GetAxisRaw(AndroidAxisNames.LIndexTrigger);
+			state.RIndexTrigger = Input.GetAxisRaw(AndroidAxisNames.RIndexTrigger);
+
+			if (state.LIndexTrigger >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.LIndexTrigger;
+			if (state.LHandTrigger >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.LHandTrigger;
+			if (state.LThumbstick.y >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.LThumbstickUp;
+			if (state.LThumbstick.y <= -AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.LThumbstickDown;
+			if (state.LThumbstick.x <= -AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.LThumbstickLeft;
+			if (state.LThumbstick.x >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.LThumbstickRight;
+
+			if (state.RIndexTrigger >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.RIndexTrigger;
+			if (state.RHandTrigger >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.RHandTrigger;
+			if (state.RThumbstick.y >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.RThumbstickUp;
+			if (state.RThumbstick.y <= -AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.RThumbstickDown;
+			if (state.RThumbstick.x <= -AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.RThumbstickLeft;
+			if (state.RThumbstick.x >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.RThumbstickRight;
+
+			float dpadX = Input.GetAxisRaw(AndroidAxisNames.DpadX);
+			float dpadY = Input.GetAxisRaw(AndroidAxisNames.DpadY);
+
+			if (dpadX <= -AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.DpadLeft;
+			if (dpadX >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.DpadRight;
+			if (dpadY <= -AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.DpadDown;
+			if (dpadY >= AXIS_AS_BUTTON_THRESHOLD)
+				state.Buttons |= (uint)RawButton.DpadUp;
+
+			previousState = currentState;
+			currentState = state;
+
+			return ((Controller)currentState.ConnectedControllers & controllerType);
 		}
 
 		public override void ConfigureButtonMap()
@@ -2436,6 +2569,11 @@ public static class OVRInput
 			axis2DMap.PrimaryTouchpad           = RawAxis2D.None;
 			axis2DMap.SecondaryThumbstick       = RawAxis2D.RThumbstick;
 			axis2DMap.SecondaryTouchpad         = RawAxis2D.None;
+		}
+
+		public override void SetControllerVibration(float frequency, float amplitude)
+		{
+
 		}
 	}
 

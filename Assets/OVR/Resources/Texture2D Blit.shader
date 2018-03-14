@@ -1,8 +1,8 @@
-﻿Shader "Oculus/Texture2D Blit" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Oculus/Alpha Premultiply" {
     Properties{
         _MainTex("Base (RGB) Trans (A)", 2D) = "white" {}
-        _linearToSrgb("Perform linear-to-gamma conversion", Int) = 0
-        _premultiply("Pre-multiply alpha", Int) = 1
     }
     SubShader{
         Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
@@ -31,8 +31,6 @@
 
 				sampler2D _MainTex;
 				float4 _MainTex_ST;
-				int _linearToSrgb;
-				int _premultiply;
 
 				v2f vert (appdata_t v)
 				{
@@ -45,17 +43,8 @@
 				fixed4 frag (v2f i) : COLOR
 				{
 					fixed4 col = tex2D(_MainTex, i.texcoord);
-					if (_linearToSrgb)
-					{
-						float3 S1 = sqrt(col.rgb);
-						float3 S2 = sqrt(S1);
-						float3 S3 = sqrt(S2);
-						col.rgb = 0.662002687 * S1 + 0.684122060 * S2 - 0.323583601 * S3 - 0.0225411470 * col.rgb;
-					}
-
-					if (_premultiply)
-						col.rgb *= col.a;
-
+					col.rgb *= col.a; // Premultiply alpha.
+					//return fixed4(1,0,0,1);
 					return col;
 				}
 			ENDCG

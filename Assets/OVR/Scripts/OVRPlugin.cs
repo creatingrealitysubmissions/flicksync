@@ -1,15 +1,15 @@
 ﻿/************************************************************************************
 
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
+Copyright   :   Copyright 2014 Oculus VR, LLC. All Rights reserved.
 
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
+Licensed under the Oculus VR Rift SDK License Version 3.3 (the "License");
 you may not use the Oculus VR Rift SDK except in compliance with the License,
 which is provided at the time of installation or download, or which
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-https://developer.oculus.com/licenses/sdk-3.4.1
+http://www.oculus.com/licenses/LICENSE-3.3
 
 Unless required by applicable law or agreed to in writing, the Oculus VR SDK
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,7 +27,7 @@ using UnityEngine;
 
 internal static class OVRPlugin
 {
-	public static readonly System.Version wrapperVersion = OVRP_1_24_0.version;
+	public static readonly System.Version wrapperVersion = OVRP_1_18_1.version;
 
 	private static System.Version _version;
 	public static System.Version version
@@ -234,15 +234,15 @@ internal static class OVRPlugin
 		R11G11B10_FP = 3,
 		B8G8R8A8_sRGB = 4,
 		B8G8R8A8 = 5,
-		R5G6B5 = 11,
 		EnumSize = 0x7fffffff
 	}
 
 	public enum PlatformUI
 	{
 		None = -1,
-		ConfirmQuit = 1,
-		GlobalMenuTutorial, // Deprecated
+		GlobalMenu = 0,
+		ConfirmQuit,
+		GlobalMenuTutorial,
 	}
 
 	public enum SystemRegion
@@ -261,7 +261,6 @@ internal static class OVRPlugin
 		GearVR_R323, // Commercial 2 (USB Type C)
 		GearVR_R324, // Commercial 3 (USB Type C)
 		GearVR_R325, // Commercial 4 (USB Type C)
-		Oculus_Go,
 
 		Rift_DK1 = 0x1000,
 		Rift_DK2,
@@ -274,7 +273,6 @@ internal static class OVRPlugin
 		Cylinder = 1,
 		Cubemap = 2,
 		OffcenterCubemap = 4,
-		Equirect = 5,
 	}
 
 	public enum Step
@@ -302,15 +300,6 @@ internal static class OVRPlugin
 		Low = 0,
 		Medium = 1,
 		High = 2,
-	}
-
-	public enum TiledMultiResLevel
-	{
-		Off = 0,
-		LMSLow = 1,
-		LMSMedium = 2,
-		LMSHigh = 3,
-		EnumSize = 0x7FFFFFFF
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -730,7 +719,6 @@ internal static class OVRPlugin
 		TextureOriginAtBottomLeft = (1 << 3),
 		ChromaticAberrationCorrection = (1 << 4),
 		NoAllocation = (1 << 5),
-		ProtectedContent = (1 << 6),
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -967,12 +955,36 @@ internal static class OVRPlugin
 					return inputFocus == Bool.True;
 				else
 				{
-					//Debug.LogWarning("ovrp_GetAppHasInputFocus return " + result);
+					Debug.LogWarning("ovrp_GetAppHasInputFocus return " + result);
 					return false;
 				}
 			}
 
+			// for Older plugin versions, return true is less disruptive?
+			Debug.LogWarning("ovrp_GetAppHasInputFocus only available on 1.18 and newer plugins ");
 			return true;
+		}
+	}
+
+	public static bool hasSystemOverlayPresent
+	{
+		get
+		{
+			if (version >= OVRP_1_18_0.version)
+			{
+				Bool hasSystemOverlay = Bool.False;
+				Result result = OVRP_1_18_0.ovrp_GetAppHasSystemOverlayPresent(out hasSystemOverlay);
+				if (Result.Success == result)
+					return hasSystemOverlay == Bool.True;
+				else
+				{
+					Debug.LogWarning("ovrp_GetAppHasSystemOverlayPresent return " + result);
+					return false;
+				}
+			}
+
+			Debug.LogWarning("ovrp_GetAppHasSystemOverlayPresent only available on 1.18 and newer plugins ");
+			return false;
 		}
 	}
 
@@ -1081,16 +1093,6 @@ internal static class OVRPlugin
 			{
 #if UNITY_ANDROID
 				if (version >= OVRP_1_11_0.version)
-					flags |= (uint)(shape) << OverlayShapeFlagShift;
-				else
-#endif
-				return false;
-			}
-
-			if (shape == OverlayShape.Equirect)
-			{
-#if UNITY_ANDROID
-				if (version >= OVRP_1_21_0.version)
 					flags |= (uint)(shape) << OverlayShapeFlagShift;
 				else
 #endif
@@ -1456,7 +1458,7 @@ internal static class OVRPlugin
 			}
 			else
 			{
-				//Debug.LogWarning("ovrp_SetHandNodePoseStateLatency return " + result);
+				Debug.LogWarning("ovrp_SetHandNodePoseStateLatency return " + result);
 				return false;
 			}
 		}
@@ -1522,9 +1524,7 @@ internal static class OVRPlugin
 		{
 			Result result = OVRP_1_15_0.ovrp_InitializeMixedReality();
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_InitializeMixedReality return " + result);
-			}
+				Debug.LogWarning("ovrp_InitializeMixedReality return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1539,9 +1539,7 @@ internal static class OVRPlugin
 		{
 			Result result = OVRP_1_15_0.ovrp_ShutdownMixedReality();
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_ShutdownMixedReality return " + result);
-			}
+				Debug.LogWarning("ovrp_ShutdownMixedReality return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1570,7 +1568,7 @@ internal static class OVRPlugin
 			Result result = OVRP_1_15_0.ovrp_GetExternalCameraCount(out cameraCount);
 			if (result != OVRPlugin.Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetExternalCameraCount return " + result);
+				Debug.LogWarning("ovrp_GetExternalCameraCount return " + result);
 				return 0;
 			}
 
@@ -1588,9 +1586,7 @@ internal static class OVRPlugin
 		{
 			Result result = OVRP_1_15_0.ovrp_UpdateExternalCamera();
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_UpdateExternalCamera return " + result);
-			}
+				Debug.LogWarning("ovrp_UpdateExternalCamera return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1612,14 +1608,14 @@ internal static class OVRPlugin
 			if (result != Result.Success)
 			{
 				retValue = false;
-				//Debug.LogWarning("ovrp_GetExternalCameraExtrinsics return " + result);
+				Debug.LogWarning("ovrp_GetExternalCameraExtrinsics return " + result);
 			}
 
 			result = OVRP_1_15_0.ovrp_GetExternalCameraIntrinsics(cameraId, out cameraIntrinsics);
 			if (result != Result.Success)
 			{
 				retValue = false;
-				//Debug.LogWarning("ovrp_GetExternalCameraIntrinsics return " + result);
+				Debug.LogWarning("ovrp_GetExternalCameraIntrinsics return " + result);
 			}
 			return retValue;
 		}
@@ -1726,9 +1722,7 @@ internal static class OVRPlugin
 		{
 			Result result = OVRP_1_16_0.ovrp_UpdateCameraDevices();
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_UpdateCameraDevices return " + result);
-			}
+				Debug.LogWarning("ovrp_UpdateCameraDevices return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1759,9 +1753,7 @@ internal static class OVRPlugin
 			size.h = height;
 			Result result = OVRP_1_16_0.ovrp_SetCameraDevicePreferredColorFrameSize(cameraDevice, size);
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_SetCameraDevicePreferredColorFrameSize return " + result);
-			}
+				Debug.LogWarning("ovrp_SetCameraDevicePreferredColorFrameSize return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1776,9 +1768,7 @@ internal static class OVRPlugin
 		{
 			Result result = OVRP_1_16_0.ovrp_OpenCameraDevice(cameraDevice);
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_OpenCameraDevice return " + result);
-			}
+				Debug.LogWarning("ovrp_OpenCameraDevice return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1793,9 +1783,7 @@ internal static class OVRPlugin
 		{
 			Result result = OVRP_1_16_0.ovrp_CloseCameraDevice(cameraDevice);
 			if (result != Result.Success)
-			{
-				//Debug.LogWarning("ovrp_OpenCameraDevice return " + result);
-			}
+				Debug.LogWarning("ovrp_OpenCameraDevice return " + result);
 			return result == Result.Success;
 		}
 		else
@@ -1839,7 +1827,7 @@ internal static class OVRPlugin
 			Result result = OVRP_1_16_0.ovrp_GetCameraDeviceColorFrameSize(cameraDevice, out size);
 			if (result != Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetCameraDeviceColorFrameSize return " + result);
+				Debug.LogWarning("ovrp_GetCameraDeviceColorFrameSize return " + result);
 				return null;
 			}
 			IntPtr pixels;
@@ -1847,12 +1835,12 @@ internal static class OVRPlugin
 			result = OVRP_1_16_0.ovrp_GetCameraDeviceColorFrameBgraPixels(cameraDevice, out pixels, out rowPitch);
 			if (result != Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetCameraDeviceColorFrameBgraPixels return " + result);
+				Debug.LogWarning("ovrp_GetCameraDeviceColorFrameBgraPixels return " + result);
 				return null;
 			}
 			if (rowPitch != size.w * 4)
 			{
-				//Debug.LogWarning(string.Format("RowPitch mismatch, expected {0}, get {1}", size.w * 4, rowPitch));
+				Debug.LogWarning(string.Format("RowPitch mismatch, expected {0}, get {1}", size.w * 4, rowPitch));
 				return null;
 			}
 			if (!cachedCameraFrameTexture || cachedCameraFrameTexture.width != size.w || cachedCameraFrameTexture.height != size.h)
@@ -1932,7 +1920,7 @@ internal static class OVRPlugin
 			Result result = OVRP_1_17_0.ovrp_GetCameraDeviceDepthFrameSize(cameraDevice, out size);
 			if (result != Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetCameraDeviceDepthFrameSize return " + result);
+				Debug.LogWarning("ovrp_GetCameraDeviceDepthFrameSize return " + result);
 				return null;
 			}
 			IntPtr depthData;
@@ -1940,12 +1928,12 @@ internal static class OVRPlugin
 			result = OVRP_1_17_0.ovrp_GetCameraDeviceDepthFramePixels(cameraDevice, out depthData, out rowPitch);
 			if (result != Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetCameraDeviceDepthFramePixels return " + result);
+				Debug.LogWarning("ovrp_GetCameraDeviceDepthFramePixels return " + result);
 				return null;
 			}
 			if (rowPitch != size.w * 4)
 			{
-				//Debug.LogWarning(string.Format("RowPitch mismatch, expected {0}, get {1}", size.w * 4, rowPitch));
+				Debug.LogWarning(string.Format("RowPitch mismatch, expected {0}, get {1}", size.w * 4, rowPitch));
 				return null;
 			}
 			if (!cachedCameraDepthTexture || cachedCameraDepthTexture.width != size.w || cachedCameraDepthTexture.height != size.h)
@@ -1972,7 +1960,7 @@ internal static class OVRPlugin
 			Result result = OVRP_1_17_0.ovrp_GetCameraDeviceDepthFrameSize(cameraDevice, out size);
 			if (result != Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetCameraDeviceDepthFrameSize return " + result);
+				Debug.LogWarning("ovrp_GetCameraDeviceDepthFrameSize return " + result);
 				return null;
 			}
 			IntPtr confidenceData;
@@ -1980,12 +1968,12 @@ internal static class OVRPlugin
 			result = OVRP_1_17_0.ovrp_GetCameraDeviceDepthConfidencePixels(cameraDevice, out confidenceData, out rowPitch);
 			if (result != Result.Success)
 			{
-				//Debug.LogWarning("ovrp_GetCameraDeviceDepthConfidencePixels return " + result);
+				Debug.LogWarning("ovrp_GetCameraDeviceDepthConfidencePixels return " + result);
 				return null;
 			}
 			if (rowPitch != size.w * 4)
 			{
-				//Debug.LogWarning(string.Format("RowPitch mismatch, expected {0}, get {1}", size.w * 4, rowPitch));
+				Debug.LogWarning(string.Format("RowPitch mismatch, expected {0}, get {1}", size.w * 4, rowPitch));
 				return null;
 			}
 			if (!cachedCameraDepthConfidenceTexture || cachedCameraDepthConfidenceTexture.width != size.w || cachedCameraDepthConfidenceTexture.height != size.h)
@@ -2003,187 +1991,8 @@ internal static class OVRPlugin
 	}
 #endif
 
-	public static bool tiledMultiResSupported
-	{
-		get
-		{
-			if (version >= OVRP_1_21_0.version)
-			{
-				Bool supported;
-				Result result = OVRP_1_21_0.ovrp_GetTiledMultiResSupported(out supported);
-				if (result == Result.Success)
-				{
-					return supported == Bool.True;
-				}
-				else
-				{
-					//Debug.LogWarning("ovrp_GetTiledMultiResSupported return " + result);
-					return false;
-				}
-			}
-			else
-			{
-				return false;
-			}
-		}
-	}
-
-	public static TiledMultiResLevel tiledMultiResLevel
-	{
-		get
-		{
-			if (version >= OVRP_1_21_0.version && tiledMultiResSupported)
-			{
-				TiledMultiResLevel level;
-				Result result = OVRP_1_21_0.ovrp_GetTiledMultiResLevel(out level);
-				if (result != Result.Success)
-				{
-					//Debug.LogWarning("ovrp_GetTiledMultiResLevel return " + result);
-				}
-				return level;
-			}
-			else
-			{
-				return TiledMultiResLevel.Off;
-			}
-		}
-		set
-		{
-			if (version >= OVRP_1_21_0.version && tiledMultiResSupported)
-			{
-				Result result = OVRP_1_21_0.ovrp_SetTiledMultiResLevel(value);
-				if (result != Result.Success)
-				{
-					//Debug.LogWarning("ovrp_SetTiledMultiResLevel return " + result);
-				}
-			}
-		}
-	}
-
-	public static bool gpuUtilSupported
-	{
-		get
-		{
-			if (version >= OVRP_1_21_0.version)
-			{
-				Bool supported;
-				Result result = OVRP_1_21_0.ovrp_GetGPUUtilSupported(out supported);
-				if (result == Result.Success)
-				{
-					return supported == Bool.True;
-				}
-				else
-				{
-					//Debug.LogWarning("ovrp_GetGPUUtilSupported return " + result);
-					return false;
-				}
-			}
-			else
-			{
-				return false;
-			}
-		}
-	}
-
-	public static float gpuUtilLevel
-	{
-		get
-		{
-			if (version >= OVRP_1_21_0.version && gpuUtilSupported)
-			{
-				float level;
-				Result result = OVRP_1_21_0.ovrp_GetGPUUtilLevel(out level);
-				if (result == Result.Success)
-				{
-					return level;
-				}
-				else
-				{
-					//Debug.LogWarning("ovrp_GetGPUUtilLevel return " + result);
-					return 0.0f;
-				}
-			}
-			else
-			{
-				return 0.0f;
-			}
-		}
-	}
-
-	private static OVRNativeBuffer _nativeSystemDisplayFrequenciesAvailable = null;
-	private static float[] _cachedSystemDisplayFrequenciesAvailable = null;
-	public static float[] systemDisplayFrequenciesAvailable
-	{
-		get
-		{
-			if (_cachedSystemDisplayFrequenciesAvailable == null)
-			{
-				_cachedSystemDisplayFrequenciesAvailable = new float[0];
-
-				if (version >= OVRP_1_21_0.version)
-				{
-					int numFrequencies = 0;
-					Result result = OVRP_1_21_0.ovrp_GetSystemDisplayAvailableFrequencies(IntPtr.Zero, out numFrequencies);
-					if (result == Result.Success)
-					{
-						if (numFrequencies > 0)
-						{
-							int maxNumElements = numFrequencies;
-							_nativeSystemDisplayFrequenciesAvailable = new OVRNativeBuffer(sizeof(float) * maxNumElements);
-							result = OVRP_1_21_0.ovrp_GetSystemDisplayAvailableFrequencies(_nativeSystemDisplayFrequenciesAvailable.GetPointer(), out numFrequencies);
-							if (result == Result.Success)
-							{
-								int numElementsToCopy = (numFrequencies <= maxNumElements) ? numFrequencies : maxNumElements;
-								if (numElementsToCopy > 0)
-								{
-									_cachedSystemDisplayFrequenciesAvailable = new float[numElementsToCopy];
-									Marshal.Copy(_nativeSystemDisplayFrequenciesAvailable.GetPointer(), _cachedSystemDisplayFrequenciesAvailable, 0, numElementsToCopy);
-								}
-							}
-						}
-					}
-				}
-			}
-
-			return _cachedSystemDisplayFrequenciesAvailable;
-		}
-	}
-
-	public static float systemDisplayFrequency
-	{
-		get
-		{
-			if (version >= OVRP_1_21_0.version)
-			{
-				float displayFrequency;
-				Result result = OVRP_1_21_0.ovrp_GetSystemDisplayFrequency2(out displayFrequency);
-				if (result == Result.Success)
-				{
-					return displayFrequency;
-				}
-
-				return 0.0f;
-			}
-			else if (version >= OVRP_1_1_0.version)
-			{
-				return OVRP_1_1_0.ovrp_GetSystemDisplayFrequency();
-			}
-			else
-			{
-				return 0.0f;
-			}
-		}
-		set
-		{
-			if (version >= OVRP_1_21_0.version)
-			{
-				OVRP_1_21_0.ovrp_SetSystemDisplayFrequency(value);
-			}
-		}
-	}
-
 	private const string pluginName = "OVRPlugin";
-	private static System.Version _versionZero = new System.Version(0, 0, 0);
+	private static Version _versionZero = new System.Version(0, 0, 0);
 
 	private static class OVRP_0_1_0
 	{
@@ -2701,44 +2510,14 @@ internal static class OVRPlugin
 
 		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern Result ovrp_GetAppHasInputFocus(out Bool appHasInputFocus);
+
+		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
+		public static extern Result ovrp_GetAppHasSystemOverlayPresent(out Bool appHasSystemOverlayPresent);
+
 	}
 
-	private static class OVRP_1_19_0
+	private static class OVRP_1_18_1
 	{
-		public static readonly System.Version version = new System.Version(1, 19, 0);
-	}
-
-	private static class OVRP_1_21_0
-	{
-		public static readonly System.Version version = new System.Version(1, 21, 0);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetTiledMultiResSupported(out Bool foveationSupported);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetTiledMultiResLevel(out TiledMultiResLevel level);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_SetTiledMultiResLevel(TiledMultiResLevel level);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetGPUUtilSupported(out Bool gpuUtilSupported);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetGPUUtilLevel(out float gpuUtil);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetSystemDisplayFrequency2(out float systemDisplayFrequency);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_GetSystemDisplayAvailableFrequencies(IntPtr systemDisplayAvailableFrequencies, out int numFrequencies);
-
-		[DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-		public static extern Result ovrp_SetSystemDisplayFrequency(float requestedFrequency);
-	}
-
-	private static class OVRP_1_24_0
-	{
-		public static readonly System.Version version = new System.Version(1, 24, 0);
+		public static readonly System.Version version = new System.Version(1, 18, 1);
 	}
 }
