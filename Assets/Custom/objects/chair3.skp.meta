@@ -5,26 +5,86 @@ licenseType: Free
 SketchUpImporter:
   generateBackFace: 0
   mergeCoplanarFaces: 0
-  selectedNodes: 
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
   assetHash:
     serializedVersion: 2
-    Hash: fdd5b020b5ad49b4c3fead5ace042b9a
-  longitude: 0
-  latitude: 0
-  northCorrection: 0
+    Hash: 5c49f0e9c408265e22cef6b2d1f8914c
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: 0, y: 0, z: 0}
-      lookAt: {x: 0, y: 0, z: 1}
-      up: {x: 0, y: 1, z: 0}
-      fov: 45
-      aspectRatio: 1.33
-      orthoSize: 0
+      position: {x: 0.9605223, y: 0.96809155, z: -1.1050271}
+      lookAt: {x: 0.23984416, y: 0.36719322, z: 0.25809947}
+      up: {x: -0.1697153, y: 0.931746, z: 0.321008}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
       isPerspective: 1
     scenes: []
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Group 1
+    100004: Group 11
+    100006: Group 13
+    100008: Group 15
+    100010: Group 17
+    100012: Group 19
+    100014: Group 21
+    100016: Group 3
+    100018: Group 5
+    100020: Group 7
+    100022: Group 9
+    400000: //RootNode
+    400002: Group 1
+    400004: Group 11
+    400006: Group 13
+    400008: Group 15
+    400010: Group 17
+    400012: Group 19
+    400014: Group 21
+    400016: Group 3
+    400018: Group 5
+    400020: Group 7
+    400022: Group 9
+    2100000: stare drewno3
+    2100002: stare drewno
+    2100004: tkanina1
+    2300000: Group 1
+    2300002: Group 11
+    2300004: Group 13
+    2300006: Group 15
+    2300008: Group 17
+    2300010: Group 19
+    2300012: Group 21
+    2300014: Group 3
+    2300016: Group 5
+    2300018: Group 7
+    2300020: Group 9
+    3300000: Group 1
+    3300002: Group 11
+    3300004: Group 13
+    3300006: Group 15
+    3300008: Group 17
+    3300010: Group 19
+    3300012: Group 21
+    3300014: Group 3
+    3300016: Group 5
+    3300018: Group 7
+    3300020: Group 9
+    4300000: Mesh Group 1
+    4300002: Mesh Group 3
+    4300004: Mesh Group 5
+    4300006: Mesh Group 7
+    4300008: Mesh Group 9
+    4300010: Mesh Group 11
+    4300012: Mesh Group 13
+    4300014: Mesh Group 15
+    4300016: Mesh Group 17
+    4300018: Mesh Group 19
+    4300020: Mesh Group 21
   externalObjects: {}
   materials:
     importMaterials: 1

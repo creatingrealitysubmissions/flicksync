@@ -1,35 +1,37 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: c2d36b76a908a4848aa4a1fd387f3b81
-timeCreated: 1521008266
-=======
-guid: ead1a5642ec3445c39450ed096720f04
-timeCreated: 1521043379
->>>>>>> 86d31f3980ec3e0f40238a54b7b68d37a8dede9f
-licenseType: Free
 SketchUpImporter:
   generateBackFace: 0
   mergeCoplanarFaces: 0
-  selectedNodes: 
+  selectedNodes: 000000000100000002000000
   assetHash:
     serializedVersion: 2
-    Hash: 92a29510241cd3fb57e47b20ed97634a
-  longitude: 0
-  latitude: 0
-  northCorrection: 0
+    Hash: bfe5846753e8762a58bc32aaf4e2fadf
+  longitude: 12.5
+  latitude: 41.883
+  northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: 0, y: 0, z: 0}
-      lookAt: {x: 0, y: 0, z: 1}
-      up: {x: 0, y: 1, z: 0}
-      fov: 45
-      aspectRatio: 1.33
-      orthoSize: 0
+      position: {x: 8.012715, y: 1.2711431, z: -3.4154267}
+      lookAt: {x: 4.2428083, y: -0.049678344, z: 2.238979}
+      up: {x: -0.10583448, y: 0.9816318, z: 0.15873893}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
       isPerspective: 1
     scenes: []
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: skp6BED
+    400000: //RootNode
+    400002: skp6BED
+    2100000: _auto_
+    2100002: _auto_1
+    2300000: skp6BED
+    3300000: skp6BED
+    4300000: Mesh skp6BED
   externalObjects: {}
   materials:
     importMaterials: 1

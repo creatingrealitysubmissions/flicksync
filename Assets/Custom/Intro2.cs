@@ -39,10 +39,11 @@ public class Intro2 : MonoBehaviour {
 
     public IEnumerator SpawnObjects()
     {
+        float waitPeriod = introAudio.clip.length / objectContainer.childCount;
         for (int i = 0; i < objectContainer.childCount; i++)
         {
             objectContainer.GetChild(i).gameObject.SetActive(true);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(waitPeriod);
         }
         while (introAudio.isPlaying)
         {
