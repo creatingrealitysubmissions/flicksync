@@ -70,6 +70,8 @@ ModelImporter:
     400060: upper_arm_L
     400062: upper_arm_R
     2100000: unnamed
+    2100002: Material
+    2100004: MouseMaterial
     4300000: mouse
     7400000: Default Take
     7400002: sleepTalk

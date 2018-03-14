@@ -39,6 +39,10 @@ ModelImporter:
     100062: toe_R
     100064: upper_arm_L
     100066: upper_arm_R
+    100068: alice
+    100070: forearm_L_001
+    100072: forearm_R_001
+    100074: spine_008
     400000: //RootNode
     400002: Bone
     400004: breast_L
@@ -73,16 +77,23 @@ ModelImporter:
     400062: toe_R
     400064: upper_arm_L
     400066: upper_arm_R
+    400068: alice
+    400070: forearm_L_001
+    400072: forearm_R_001
+    400074: spine_008
     2100000: unnamed
     4300000: hatter
+    4300002: alice
     7400000: Default Take
     7400002: idle
     7400004: sleep
     7400006: sleepTalk
     7400008: talk
     7400010: talking
+    7400012: metarigAction
     9500000: //RootNode
     13700000: hatter
+    13700002: alice
   externalObjects: {}
   materials:
     importMaterials: 1

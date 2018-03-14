@@ -1,35 +1,53 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 3dbd966ddf4285240ab24a95367056a0
-timeCreated: 1521008258
-=======
-guid: b05f232525cf443de96fc53638f3d953
-timeCreated: 1521043373
->>>>>>> 86d31f3980ec3e0f40238a54b7b68d37a8dede9f
-licenseType: Free
 SketchUpImporter:
   generateBackFace: 0
   mergeCoplanarFaces: 0
-  selectedNodes: 
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
   assetHash:
     serializedVersion: 2
-    Hash: c654b275eb2ab70ab2d9f9590da668be
-  longitude: 0
-  latitude: 0
-  northCorrection: 0
+    Hash: 1895885ece4e98668c85a87a19d8ea23
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
   fileUnit: 0
   sketchUpImportData:
     defaultCamera:
-      position: {x: 0, y: 0, z: 0}
-      lookAt: {x: 0, y: 0, z: 1}
-      up: {x: 0, y: 1, z: 0}
-      fov: 45
-      aspectRatio: 1.33
-      orthoSize: 0
+      position: {x: 0.9771568, y: 0.33626583, z: -2.0786111}
+      lookAt: {x: 0.13790809, y: -0.01458086, z: 1.0688843}
+      up: {x: -0.027589545, y: 0.99424976, z: 0.10347108}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
       isPerspective: 1
     scenes: []
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: chair leg
+    100004: chair leg 1
+    100006: chair leg 2
+    100008: chair leg 3
+    100010: Group 1
+    400000: //RootNode
+    400002: chair leg
+    400004: chair leg 1
+    400006: chair leg 2
+    400008: chair leg 3
+    400010: Group 1
+    2100000: '[Wood_Floor_Parquet]'
+    2300000: chair leg
+    2300002: chair leg 1
+    2300004: chair leg 2
+    2300006: chair leg 3
+    2300008: Group 1
+    3300000: chair leg
+    3300002: chair leg 1
+    3300004: chair leg 2
+    3300006: chair leg 3
+    3300008: Group 1
+    4300000: Mesh Group 1
+    4300002: Mesh chair leg
   externalObjects: {}
   materials:
     importMaterials: 1
