@@ -10,10 +10,20 @@ public class Expressions : MonoBehaviour {
 	public Sprite resting;
 	public UnityEngine.UI.Image image;
 	int currentExpression = 0;
-	
-	// Update is called once per frame
-	void Update () {
+    Animator charcon;
+
+    public void Start()
+    {
+        charcon = GetComponentInParent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 		if (LoadScript.instance.script.lines [WatsonIntegration.instance.phraseNumber].character == character) {
+            if(charcon != null)
+            {
+                charcon.SetBool(0, true);
+            }
 			if (changeTime + 0.3f < Time.time) {
 				changeTime = Time.time;
 				currentExpression++;
@@ -22,8 +32,10 @@ public class Expressions : MonoBehaviour {
 				}
 				image.sprite = expressions [currentExpression];
 			}
-		}else {
-			image.sprite = resting;
-		}
-	}
+		}else
+        {
+            charcon.SetBool(0, false);
+            //image.sprite = resting;
+        }
+    }
 }
