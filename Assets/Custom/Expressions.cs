@@ -19,23 +19,23 @@ public class Expressions : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (LoadScript.instance.script.lines [WatsonIntegration.instance.phraseNumber].character == character) {
-            if(charcon != null)
-            {
-                charcon.SetBool(0, true);
-            }
-			if (changeTime + 0.3f < Time.time) {
-				changeTime = Time.time;
-				currentExpression++;
-				if (currentExpression == expressions.Length) {
-					currentExpression = 0;
+		if (WatsonIntegration.instance.phraseNumber >= 0) {
+			if (LoadScript.instance.script.lines [WatsonIntegration.instance.phraseNumber].character == character) {
+				if (charcon != null) {
+					charcon.SetBool ("talking", true);
 				}
-				image.sprite = expressions [currentExpression];
+				if (changeTime + 0.3f < Time.time) {
+					changeTime = Time.time;
+					currentExpression++;
+					if (currentExpression == expressions.Length) {
+						currentExpression = 0;
+					}
+					image.sprite = expressions [currentExpression];
+				}
+			} else {
+				charcon.SetBool ("talking", false);
+				image.sprite = resting;
 			}
-		}else
-        {
-            charcon.SetBool(0, false);
-            //image.sprite = resting;
-        }
+		}
     }
 }
