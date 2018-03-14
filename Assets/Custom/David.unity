@@ -2891,7 +2891,7 @@ MonoBehaviour:
   visualTimer: {fileID: 1323954768}
   fillImage: {fileID: 0}
   phraseNumber: 0
-  myCharacter: Alice
+  myCharacter: 
   audioSourceSource:
   - {fileID: 865033569}
   - {fileID: 865033569}
@@ -4323,7 +4323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1323954769
 RectTransform:
   m_ObjectHideFlags: 0
