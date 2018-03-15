@@ -92,6 +92,8 @@ ModelImporter:
     7400008: talk
     7400010: talking
     7400012: metarigAction
+    7400014: alice_Idle
+    7400016: alice_Talk
     9500000: //RootNode
     13700000: hatter
     13700002: alice
