@@ -1,11 +1,11 @@
 This github repository was created for the Creating Reality hackathon at USC in March 2018.  
 
 It was contributed to by:
-David Geisert
-J Peter Jones
-Ryan Lebar
-Cindy Reichel
-Nick Roewe
+David Geisert,
+J Peter Jones,
+Ryan Lebar,
+Cindy Reichel,
+Nick Roewe,
 
 To set up the project you will need to clone the repositry and then set up the Watson and Photon with your own keys. 
 
