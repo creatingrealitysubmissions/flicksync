@@ -27,16 +27,10 @@ using UnityEngine.UI;
 public class ExampleStreaming : MonoBehaviour
 {
 	public static ExampleStreaming instance;
-
-    //  Old credentials
-    //	private string _username = "c2f0568f-19ff-4aa3-aeb6-e9d34c844113";
-    //	private string _password = "mU7r10Ntpf7F";
-    //	private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
     
-    // Current credentials (Cindy)
-    private string _username = "ec401466-36da-4d4b-ac82-8b80882a072c";
-	private string _password = "4y45hm3VTgk4";
-	private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
+    private string _username = "c2f0568f-19ff-4aa3-aeb6-e9d34c844113";
+    private string _password = "mU7r10Ntpf7F";
+    private string _url = "https://stream.watsonplatform.net/speech-to-text/api";
 
     public Text ResultsField;
 	public GameObject cube;
